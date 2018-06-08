@@ -29,7 +29,7 @@ pre-build: install dep
 post-build:
 	@echo "Running scripts after the build is done..."
 
-all: pre-build build post-build all-api-docs
+all: pre-build build post-build
 
 test:
 	@echo "Running test suites..."
