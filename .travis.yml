@@ -1,0 +1,29 @@
+language: elixir
+elixir:
+  - 1.6
+otp_release:
+  - 20.1
+branches:
+  only:
+    - master
+install:
+  - epmd -daemon
+  - mix local.hex --force
+  - mix local.rebar --force
+script: make travis
+env:
+  - MIX_ENV=test
+before_script: make travis-init
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: git clone https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG;
+    cd $TRAVIS_REPO_SLUG; make travis-deploy
+  on:
+    branch: master
+env:
+  global:
+  - secure:
+notifications:
+  slack:
+    secure: 
