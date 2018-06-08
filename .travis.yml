@@ -23,7 +23,7 @@ deploy:
     branch: master
 env:
   global:
-  - secure:
+  - secure: "GHBrC2djHM6SQaw6kdGoek80On3+8brOGELjqLbbUjB3RcaPpyDBPQctGuhNtzFsRqK5ZDwBK8gpINwPSJqxkBEt0XT3rFzwOIIQioApPcb3LPeZi1L1rewR9z0koJPr+h/3Vp0qLydji4wY+/SSkz4B0puYrzn6ga5UnzrfDnrxyn40cQ7T00jqhLd5ahqreNDVS94lHBr3BF9QK/5M6omdiryJGJvLF7GjJEQ+bHDMHnpt6yvNsDEh5UCPiARe6HtX59cxJ1qmzpRMecH8v1a1DIrLBuwmsWRlXjuWw5nNI0gMv5Q0q5IdYVmx3Kmh/OzmShOjoI71VGsop5v+OeHX+G/GWq3/uG/Cu5VSljcGuoz1gO8BIQutLtAZUMLizv9akY5RmISswbuEeZHXdkDXSBbESd3sKhUI9C9uXjJk48eP+OL4gfhAiqV5JeMVYvx//3JSMznX1A+lwK+KNNlZB8j3UPLpGPDsVozq97zy+HwodotFzhrrpNpJT8mKL3V16XY9FxAqopSwolJyhp5gwiwUH2h981GXyCN8NEyGSHSzxG5f5m/rhtoQPZcMK1Qn9NSZwh/9TJnku3xWG/g+TM0UTyORphRiowq+gCv+DsKFWlH98UijUy7eGRbMMM/nrc7IyGBjLmt4r6BA/evcybUUkwJ52dUzqVJemKQ="
 notifications:
   slack:
     secure: 
