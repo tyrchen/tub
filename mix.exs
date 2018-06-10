@@ -50,7 +50,7 @@ defmodule Tub.MixProject do
 
   defp description do
     """
-    Load a single beam file, an app (a set of beams), or an erlang release (a set of apps) to a node.
+    Generate schema code for various libraries, like ecto, absinthe, etc.
     """
   end
 
