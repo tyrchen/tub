@@ -14,7 +14,7 @@ defmodule Tub.Ecto.Schema do
   alias Tub.DynamicModule
   require DynamicModule
 
-  def gen(mod_name, schema_name, fields, doc \\ false) do
+  def gen(mod_name, schema_name, fields, {pk, pk_type}, doc \\ false) do
     preamble =
       quote do
         use Ecto.Schema
@@ -22,6 +22,7 @@ defmodule Tub.Ecto.Schema do
 
     contents =
       quote do
+        @primary_key {unquote(pk), unquote(pk_type), []}
         schema unquote(schema_name) do
           unquote(get_fields(fields))
         end

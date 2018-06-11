@@ -6,6 +6,6 @@ defmodule Tub.Etco.SchemaTest do
   test "generate an Ecto Schema" do
     name = "Acme.Schema.Block"
     fields = [height: :integer, hash: :string, gas: :integer]
-    Schema.gen(name, "block", fields, "Ecto schema for Block")
+    Schema.gen(name, "block", fields, {:id, :id}, "Ecto schema for Block")
   end
 end
