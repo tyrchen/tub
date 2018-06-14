@@ -39,6 +39,9 @@ defmodule Tub.MixProject do
 
   defp deps do
     [
+      {:recase, "~> 0.3.0"},
+
+      # test and dev
       {:absinthe, "~> 1.4.0", only: [:dev, :test]},
       {:ecto, "~> 2.1", only: [:dev, :test]},
       {:credo, "~> 0.8", only: [:dev, :test]},

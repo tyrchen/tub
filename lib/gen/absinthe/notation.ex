@@ -47,9 +47,25 @@ defmodule Tub.Absinthe.Notation do
 
   defp get_fields(fields) do
     Enum.map(fields, fn {name, type} ->
-      quote do
-        field(unquote(name), unquote(type))
+      case is_list(type) do
+        true ->
+          [type] = type
+          type = to_atom(type)
+
+          quote do
+            field(unquote(name), list_of(unquote(type)))
+          end
+
+        _ ->
+          type = to_atom(type)
+
+          quote do
+            field(unquote(name), unquote(type))
+          end
       end
     end)
   end
+
+  defp to_atom(term) when is_atom(term), do: term
+  defp to_atom(term) when is_binary(term), do: String.to_atom(term)
 end
