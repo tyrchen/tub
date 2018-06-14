@@ -1,3 +1,6 @@
+## 0.4.0 (June 15, 2018)
+  - add sql generator.
+
 ## 0.2.3 (June 12, 2018)
   - support pk
 
