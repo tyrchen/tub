@@ -46,7 +46,7 @@ defmodule Tub.Absinthe.Notation do
   end
 
   defp get_fields(fields) do
-    Enum.map(fields, fn {name, type} ->
+    Enum.map(fields, fn {name, type, nullable} ->
       case is_list(type) do
         true ->
           [type] = type
@@ -59,8 +59,16 @@ defmodule Tub.Absinthe.Notation do
         _ ->
           type = to_atom(type)
 
-          quote do
-            field(unquote(name), unquote(type))
+          case nullable do
+            true ->
+              quote do
+                field(unquote(name), unquote(type))
+              end
+
+            _ ->
+              quote do
+                field(unquote(name), non_null(unquote(type)))
+              end
           end
       end
     end)

@@ -16,6 +16,7 @@ defmodule Tub.DynamicModule do
 
       name = String.to_atom("Elixir.#{mod_name}")
       Module.create(name, [moduledoc] ++ [preamble] ++ [contents], Macro.Env.location(__ENV__))
+      IO.puts("Module #{mod_name} is generated.")
     end
   end
 end
