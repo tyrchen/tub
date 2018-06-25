@@ -32,9 +32,9 @@ defmodule Tub.Ecto.Schema do
   end
 
   defp get_fields(fields) do
-    Enum.map(fields, fn {name, type} ->
+    Enum.map(fields, fn {name, type, meta} ->
       quote do
-        field(unquote(name), unquote(type))
+        field(unquote(name), unquote(type), unquote(meta))
       end
     end)
   end
