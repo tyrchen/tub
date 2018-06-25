@@ -1,3 +1,6 @@
+## 0.5.0 (June 25, 2018)
+  - enable metadata for schema
+
 ## 0.4.0 (June 15, 2018)
   - add sql generator.
 
