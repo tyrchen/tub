@@ -1,3 +1,6 @@
+## 0.5.1 (June 26, 2018)
+  - allow metadata in create table
+
 ## 0.5.0 (June 25, 2018)
   - enable metadata for schema
 
