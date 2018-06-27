@@ -17,8 +17,18 @@ defmodule Tub.Sql.CreateTable do
 
   defp serialize_args(items) do
     items
-    |> Enum.map(fn {name, type} -> "  #{transform_name(name)} #{type}" end)
+    |> Enum.map(&gen_field/1)
     |> Enum.join(",\n")
+  end
+
+  defp gen_field({name, type, meta}) do
+    nullable =
+      case Access.get(meta, :null, true) do
+        true -> ""
+        _ -> " not null"
+      end
+
+    "  #{transform_name(name)} #{type}#{nullable}"
   end
 
   defp transform_name(name) do
