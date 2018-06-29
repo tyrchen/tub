@@ -1,3 +1,7 @@
+## 0.6.0 (June 28, 2018)
+  - make test work
+  - support gql schema generation.
+
 ## 0.5.1 (June 26, 2018)
   - allow metadata in create table
 
