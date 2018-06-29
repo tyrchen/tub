@@ -1,3 +1,6 @@
+## 0.8.0 (June 29, 2018)
+  - support code generation if path is given
+
 ## 0.7.1 (June 28, 2018)
   - fix slate issue
 
