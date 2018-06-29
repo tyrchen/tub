@@ -8,25 +8,18 @@ defmodule Tub.Markdown.SlateTest do
         "name" => "ethereum",
         "apis" => [
           %{
-            "doc" => "The blockchain API\n",
-            "endpoints" => [
+            "doc" => "The chain query allows you to retrieve information of a chain.",
+            "examples" => [
+              "```javascript\n{}\n```\n"
+            ],
+            "params" => [
               %{
-                "doc" => "The chain query allows you to retrieve information of a chain.",
-                "examples" => [
-                  "```javascript\n{}\n```\n"
-                ],
-                "name" => "Chain Query",
-                "params" => [
-                  %{
-                    "doc" => "The name of the chain's built-in coin, such as btc, eth and so on.",
-                    "name" => "coin",
-                    "type" => "string"
-                  }
-                ],
-                "response" => "Blockchain",
-                "url" => "/"
+                "doc" => "The name of the chain's built-in coin, such as btc, eth and so on.",
+                "name" => "coin",
+                "type" => "string"
               }
             ],
+            "return" => "Blockchain",
             "name" => "Blockchain API"
           }
         ],

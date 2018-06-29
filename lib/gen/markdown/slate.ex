@@ -33,7 +33,9 @@ defmodule Tub.Markdown.Slate do
 
   defp serialize_one(item, :apis) do
     serialize_title(item["name"], 1) <>
-      serialize_doc(item["doc"]) <> serialize_endpoints(item["endpoints"])
+      serialize_doc(item["doc"]) <>
+      serialize_examples(Map.get(item, "examples", [])) <>
+      serialize_args(Map.get(item, "params", [])) <> serialize_response(item["return"])
   end
 
   defp serialize_title(v, level \\ 2), do: "#{String.duplicate("#", level)} #{v}#{@dn}"
@@ -46,17 +48,6 @@ defmodule Tub.Markdown.Slate do
       |> Enum.join("\n")
 
     "#{@dn}#{name} | Type | Description\n-------- | ---- | -----------\n#{body}#{@dn}"
-  end
-
-  defp serialize_endpoints(items) do
-    items
-    |> Enum.map(fn item ->
-      serialize_title(item["name"]) <>
-        serialize_examples(item["examples"]) <>
-        serialize_doc(item["doc"]) <>
-        serialize_args(item["params"]) <> serialize_response(item["response"])
-    end)
-    |> Enum.join(@dn)
   end
 
   defp serialize_examples(examples), do: Enum.join(examples, @dn)
