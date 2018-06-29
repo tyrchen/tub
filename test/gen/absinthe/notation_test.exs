@@ -4,7 +4,7 @@ defmodule Tub.Absinthe.NotationTest do
   require Notation
 
   test "generate a absinthe notation" do
-    name = "Acme.Notation"
+    name = "Acme.NotationNew"
 
     fields = [
       {:height, :integer, nullable: false},

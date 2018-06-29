@@ -52,7 +52,7 @@ defmodule Tub.Absinthe.Schema do
       {field_name, filed_doc, params, return} = data
 
       IO.puts(
-        "Creating #{field_name}: please make sure you define resolver function #{return} in your resolver."
+        "Creating #{field_name}: please make sure you define resolver function **#{return}** in your resolver."
       )
 
       quote do

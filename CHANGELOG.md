@@ -1,3 +1,6 @@
+## 0.7.1 (June 28, 2018)
+  - fix slate issue
+
 ## 0.6.0 (June 28, 2018)
   - make test work
   - support gql schema generation.
