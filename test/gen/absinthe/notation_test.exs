@@ -7,9 +7,9 @@ defmodule Tub.Absinthe.NotationTest do
     name = "Acme.Notation"
 
     fields = [
-      {:height, :integer, null: false},
-      {:hash, :string, null: false},
-      {:gas, :integer, null: true}
+      {:height, :integer, nullable: false},
+      {:hash, :string, nullable: false},
+      {:gas, :integer, nullable: true}
     ]
 
     schema = [

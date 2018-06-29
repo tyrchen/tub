@@ -3,6 +3,8 @@ defmodule Tub.Absinthe.Schema do
   Generate Absinthe Schema
 
   Usage:
+
+  ```elixir
   name = "q1"
   doc = "hello world"
     params = [
@@ -11,7 +13,8 @@ defmodule Tub.Absinthe.Schema do
   ]
   return = :list_blocks
   meta = notation: "OcapApi.GQL.Notation.Bitcoin", resolver: "OcapApi.GQL.Bitcoin.Resolver"
-    Tub.Absinthe.Schema.gen(mod_name, [name, doc, params, return], meta)
+  Tub.Absinthe.Schema.gen(mod_name, [name, doc, params, return], meta)
+  ```
   """
   alias Tub.DynamicModule
   require DynamicModule
