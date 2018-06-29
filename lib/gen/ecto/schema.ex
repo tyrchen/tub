@@ -9,12 +9,12 @@ defmodule Tub.Ecto.Schema do
       f2: :integer,
       f3: :utc_datetime
     ]
-    Tub.Ecto.Schema.gen(Acme.Block, "block", fields)
+    Tub.Ecto.Schema.gen(Acme.Block, "block", fields, {:id, :hash}, [])
   """
   alias Tub.DynamicModule
   require DynamicModule
 
-  def gen(mod_name, schema_name, fields, {pk, pk_type}, doc \\ false) do
+  def gen(mod_name, schema_name, fields, {pk, pk_type}, opts) do
     preamble =
       quote do
         use Ecto.Schema
@@ -28,7 +28,7 @@ defmodule Tub.Ecto.Schema do
         end
       end
 
-    DynamicModule.gen(mod_name, preamble, contents, doc)
+    DynamicModule.gen(mod_name, preamble, contents, opts)
   end
 
   defp get_fields(fields) do

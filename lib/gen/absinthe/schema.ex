@@ -19,7 +19,7 @@ defmodule Tub.Absinthe.Schema do
   alias Tub.DynamicModule
   require DynamicModule
 
-  def gen(mod_name, queries, meta, mod_doc \\ "") do
+  def gen(mod_name, queries, meta, opts \\ []) do
     notation = name_to_module(meta[:notation])
     resolver = name_to_module(meta[:resolver])
     IO.puts("Module: #{mod_name}, notation: #{notation}, resolver: #{resolver}")
@@ -41,7 +41,7 @@ defmodule Tub.Absinthe.Schema do
         end
       end
 
-    DynamicModule.gen(mod_name, preamble, contents, mod_doc)
+    DynamicModule.gen(mod_name, preamble, contents, opts)
   end
 
   defp name_to_module(name), do: String.to_atom("Elixir.#{name}")

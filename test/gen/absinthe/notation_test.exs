@@ -17,6 +17,6 @@ defmodule Tub.Absinthe.NotationTest do
       {:transaction, fields, "object", ""}
     ]
 
-    Notation.gen(name, schema, "GQL schema for Block")
+    Notation.gen(name, schema, doc: "GQL schema for Block")
   end
 end

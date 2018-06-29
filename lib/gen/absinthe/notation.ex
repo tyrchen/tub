@@ -17,7 +17,7 @@ defmodule Tub.Absinthe.Notation do
   alias Tub.DynamicModule
   require DynamicModule
 
-  def gen(mod_name, schema, doc \\ false) do
+  def gen(mod_name, schema, opts \\ []) do
     preamble =
       quote do
         use Absinthe.Schema.Notation
@@ -45,7 +45,7 @@ defmodule Tub.Absinthe.Notation do
         end
       end)
 
-    DynamicModule.gen(mod_name, preamble, contents, doc)
+    DynamicModule.gen(mod_name, preamble, contents, opts)
   end
 
   defp get_fields(fields) do

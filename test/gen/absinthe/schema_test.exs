@@ -16,7 +16,7 @@ defmodule Tub.Absinthe.SchemaTest do
       {:block, fields, "object", ""}
     ]
 
-    Notation.gen(name, schema, "GQL schema for Block")
+    Notation.gen(name, schema, doc: "GQL schema for Block")
 
     name = "Acme.Schema"
 
