@@ -12,6 +12,6 @@ defmodule Tub.Etco.SchemaTest do
       {:gas, :integer, null: true}
     ]
 
-    Schema.gen(name, "block", fields, {:id, :id}, "Ecto schema for Block")
+    Schema.gen(name, "block", fields, {:id, :id}, doc: "Ecto schema for Block")
   end
 end

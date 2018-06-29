@@ -19,7 +19,7 @@ defmodule Tub.DynamicModuleTest do
         def handle_call(:hello, _from, state), do: {:reply, "hello world", state}
       end
 
-    DynamicModule.gen(name, preamble, contents, "hello world")
+    DynamicModule.gen(name, preamble, contents, doc: "hello world")
     {:ok, _pid} = Acme.Server.start_link()
     assert "hello world" = Acme.Server.hello()
   end

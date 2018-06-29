@@ -15,7 +15,7 @@ defmodule Abc.GenModules do
     f2: :integer,
     f3: :utc_datetime
   ]
-  Tub.Ecto.Schema.gen(Abc.Db.Block, "block", fields)
+  Tub.Ecto.Schema.gen(Abc.Db.Block, "block", fields, {:id, :hash}, [])
   Tub.Absinthe.Notation.gen(Abc.Gql.Notation, [%{
     name: :block,
     fields: fields
