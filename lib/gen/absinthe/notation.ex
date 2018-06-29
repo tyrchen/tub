@@ -18,8 +18,6 @@ defmodule Tub.Absinthe.Notation do
   require DynamicModule
 
   def gen(mod_name, schema, doc \\ false) do
-    schema = transform(schema)
-
     preamble =
       quote do
         use Absinthe.Schema.Notation
@@ -27,26 +25,33 @@ defmodule Tub.Absinthe.Notation do
 
     contents =
       schema
-      |> Enum.map(fn {object_name, fields} ->
-        quote do
-          object unquote(object_name) do
-            unquote(get_fields(fields))
-          end
+      |> Enum.map(fn {object_name, fields, type, doc} ->
+        case type do
+          "input" ->
+            quote do
+              @desc unquote(doc)
+              input_object unquote(object_name) do
+                unquote(get_fields(fields))
+              end
+            end
+
+          _ ->
+            quote do
+              @desc unquote(doc)
+              object unquote(object_name) do
+                unquote(get_fields(fields))
+              end
+            end
         end
       end)
 
     DynamicModule.gen(mod_name, preamble, contents, doc)
   end
 
-  defp transform(schema) do
-    schema
-    |> Enum.map(fn %{name: name, fields: fields} ->
-      {name, fields}
-    end)
-  end
-
   defp get_fields(fields) do
-    Enum.map(fields, fn {name, type, nullable} ->
+    Enum.map(fields, fn {name, type, meta} ->
+      nullable = Access.get(meta, :nullable, true)
+
       case is_list(type) do
         true ->
           [type] = type

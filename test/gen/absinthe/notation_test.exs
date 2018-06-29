@@ -7,14 +7,14 @@ defmodule Tub.Absinthe.NotationTest do
     name = "Acme.Notation"
 
     fields = [
-      {:height, :integer, false},
-      {:hash, :string, false},
-      {:gas, :integer, true}
+      {:height, :integer, null: false},
+      {:hash, :string, null: false},
+      {:gas, :integer, null: true}
     ]
 
     schema = [
-      %{name: :block, fields: fields},
-      %{name: :transaction, fields: fields}
+      {:block, fields, "input", ""},
+      {:transaction, fields, "object", ""}
     ]
 
     Notation.gen(name, schema, "GQL schema for Block")

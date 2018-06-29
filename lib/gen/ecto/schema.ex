@@ -33,8 +33,10 @@ defmodule Tub.Ecto.Schema do
 
   defp get_fields(fields) do
     Enum.map(fields, fn {name, type, meta} ->
+      nullable = [null: meta[:nullable]]
+
       quote do
-        field(unquote(name), unquote(type), unquote(meta))
+        field(unquote(name), unquote(type), unquote(nullable))
       end
     end)
   end
